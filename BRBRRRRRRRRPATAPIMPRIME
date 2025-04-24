@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+int indexOf(char text[], char word[]) {
+    int textLength = 0;
+    int wordLength = 0;
+
+    // Считаем длину text
+    while (text[textLength] != '\0') {
+        textLength++;
+    }
+
+    // Считаем длину word
+    while (word[wordLength] != '\0') {
+        wordLength++;
+    }
+
+    // Поиск совпадения
+    for (int i = 0; i <= textLength - wordLength; i++) {
+        int match = 1;
+        for (int j = 0; j < wordLength; j++) {
+            if (text[i + j] != word[j]) {
+                match = 0;
+                break;
+            }
+        }
+        if (match == 1) {
+            return i; // нашли совпадение, возвращаем индекс
+        }
+    }
+
+    return -1; // не нашли
+}
+
+int main() {
+    // Пример использования indexOf
+    char sentence[] = "the cat sat on the mat";
+    char target[] = "cat";
+    int found = indexOf(sentence, target);
+
+    if (found != -1) {
+        printf("Слово \"%s\" найдено на позиции %d\n", target, found);
+    } else {
+        printf("Слово \"%s\" не найдено\n", target);
+    }
+
+    return 0;
+}
