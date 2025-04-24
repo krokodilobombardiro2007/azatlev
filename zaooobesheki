@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <string.h>
+//задаем функцию для нахождения большего целого числа
+int max(int a, int b) {
+    return (a > b) ? a : b;
+}
+//в функции main задаем переменную result и присваиваем ей значение функции max, далее выводим результат
+int main(){
+    int result = max(5, 6);
+    printf("%d", result);
+    return 0;
+}
